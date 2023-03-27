@@ -8,8 +8,8 @@ name: Build OpenWrt with lede
 
 on:
   repository_dispatch:
-  schedule:
-    - cron: 00 20 * * *
+#  schedule:
+#    - cron: 00 20 * * *
   watch:
     types: started
   workflow_dispatch:
