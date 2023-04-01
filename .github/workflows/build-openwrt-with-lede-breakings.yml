@@ -83,7 +83,7 @@ on:
       kernel_repo:
         description: "Set the kernel repository"
         required: false
-        default: "https://github.com/breakings/OpenWrt/tree/main/pub"
+        default: "https://github.com/breakings/OpenWrt/tree/main/opt"
       openwrt_size:
         description: "Set the rootfs size(Unit: MiB)"
         required: false
@@ -202,7 +202,7 @@ jobs:
           df -hT ${PWD}
       - name: Build OpenWrt firmware
         if: ${{ steps.compile.outputs.status }} == 'success' && !cancelled()
-        uses: breakings/OpenWrt@main
+        uses: ophub/flippy-openwrt-actions@main
         with:
           openwrt_path: openwrt/bin/targets/*/*/*rootfs.tar.gz
           openwrt_board: ${{ inputs.openwrt_board }}
